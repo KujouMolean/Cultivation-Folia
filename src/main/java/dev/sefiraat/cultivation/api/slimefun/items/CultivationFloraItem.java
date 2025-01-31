@@ -1,6 +1,7 @@
 package dev.sefiraat.cultivation.api.slimefun.items;
 
 import com.google.common.base.Preconditions;
+import com.molean.Folia;
 import com.xzavier0722.mc.plugin.slimefun4.storage.controller.SlimefunBlockData;
 import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import dev.sefiraat.cultivation.api.events.CultivationBushGrowEvent;
@@ -211,7 +212,7 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
         } else {
             event = new CultivationGrowEvent(location, this, growthStage);
         }
-        Bukkit.getPluginManager().callEvent(event);
+        Folia.getPluginManager().ce(event);
         return event;
     }
 

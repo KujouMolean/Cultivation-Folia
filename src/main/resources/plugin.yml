@@ -31,3 +31,4 @@ permissions:
   cultivation.admin.structures:
     description: Allows the user to manage Cultivation Structures
     default: op
+folia-supported: true

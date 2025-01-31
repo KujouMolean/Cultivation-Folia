@@ -1,5 +1,6 @@
 package dev.sefiraat.cultivation.implementation.listeners;
 
+import com.molean.Folia;
 import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.Registry;
 import dev.sefiraat.cultivation.api.slimefun.items.bushes.CultivationBush;
@@ -39,18 +40,18 @@ public class TraderListener implements Listener {
     public void onVillagerChangesProfession(@Nonnull VillagerCareerChangeEvent event) {
         Villager villager = event.getEntity();
         if (event.getProfession() == Villager.Profession.FARMER) {
-            Bukkit.getScheduler().runTaskLater(
-                Cultivation.getInstance(), () -> addRecipe(villager, this::addBushRecipe),
+            Folia.getScheduler().runTaskLater(
+                Cultivation.getInstance(), villager, () -> addRecipe(villager, this::addBushRecipe),
                 1
             );
         } else if (event.getProfession() == Villager.Profession.FLETCHER) {
-            Bukkit.getScheduler().runTaskLater(
-                Cultivation.getInstance(), () -> addRecipe(villager, this::addTreeRecipe),
+            Folia.getScheduler().runTaskLater(
+                Cultivation.getInstance(), villager, () -> addRecipe(villager, this::addTreeRecipe),
                 1
             );
         } else if (event.getProfession() == Villager.Profession.CLERIC) {
-            Bukkit.getScheduler().runTaskLater(
-                Cultivation.getInstance(), () -> addRecipe(villager, this::addByProductRecipe),
+            Folia.getScheduler().runTaskLater(
+                Cultivation.getInstance(), villager, () -> addRecipe(villager, this::addByProductRecipe),
                 1
             );
         }

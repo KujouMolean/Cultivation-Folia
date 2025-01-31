@@ -270,7 +270,7 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
     }
 
     protected void breedSuccess(@Nonnull Location location) {
-        ParticleUtils.displayParticleRandomly(LocationUtils.centre(location), Particle.SLIME, 0.5, 4);
+        ParticleUtils.displayParticleRandomly(LocationUtils.centre(location), Particle.ITEM_SLIME, 0.5, 4);
     }
 
     /**

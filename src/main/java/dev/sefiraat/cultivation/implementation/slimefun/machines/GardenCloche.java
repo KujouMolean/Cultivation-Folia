@@ -1,5 +1,6 @@
 package dev.sefiraat.cultivation.implementation.slimefun.machines;
 
+import com.molean.Folia;
 import com.xzavier0722.mc.plugin.slimefun4.storage.controller.SlimefunBlockData;
 import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import dev.sefiraat.cultivation.Cultivation;
@@ -100,8 +101,8 @@ public class GardenCloche extends SlimefunItem implements DisplayInteractable, E
                     Location location = block.getLocation();
                     if (slimefunItem instanceof HarvestablePlant plant) {
                         if (!hasDisplayPlant(location)) {
-                            Bukkit.getScheduler().runTask(
-                                Cultivation.getInstance(), () -> addPlantToDisplay(location)
+                            Folia.getScheduler().runTask(
+                                    Cultivation.getInstance(), location, () -> addPlantToDisplay(location)
                             );
                         }
                         if (getCharge(location) < POWER_REQUIREMENT) {
@@ -116,9 +117,9 @@ public class GardenCloche extends SlimefunItem implements DisplayInteractable, E
                             removeCharge(location, POWER_REQUIREMENT);
                         }
                     } else {
-                        Bukkit.getScheduler().runTask(
-                            Cultivation.getInstance(),
-                            () -> removePlantFromDisplay(location)
+                        Folia.getScheduler().runTask(
+                                Cultivation.getInstance(), location,
+                                () -> removePlantFromDisplay(location)
                         );
                     }
                 }

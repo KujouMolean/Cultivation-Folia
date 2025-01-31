@@ -1,5 +1,6 @@
 package dev.sefiraat.cultivation.implementation.listeners;
 
+import com.molean.Folia;
 import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import dev.sefiraat.cultivation.api.events.CultivationTreeGrowEvent;
 import dev.sefiraat.cultivation.api.slimefun.items.trees.CultivationTree;
@@ -31,7 +32,7 @@ public class TreeListener implements Listener {
                     tree.getTreeDesign(),
                     slimefunItem
                 );
-                Bukkit.getPluginManager().callEvent(growEvent);
+                Folia.getPluginManager().ce(growEvent);
                 if (growEvent.isCancelled()) {
                     return;
                 }
