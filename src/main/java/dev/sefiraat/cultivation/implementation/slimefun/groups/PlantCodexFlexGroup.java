@@ -162,7 +162,7 @@ public class PlantCodexFlexGroup extends FlexItemGroup {
                             itemStack.setType(possibleStack.getType());
                         }
                     }
-                    menu.replaceExistingItem(slot, itemStack);
+                    menu.replaceExistingItem(slot, ItemStack.deserialize(itemStack.serialize()));
                     menu.addMenuClickHandler(slot, (player1, i1, itemStack1, clickAction) -> {
                         displayDetail(player1, profile, mode, menu, page, pair);
                         return false;
