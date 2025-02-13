@@ -51,41 +51,47 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.6.0</version>
-                <configuration>
-                    <minimizeJar>true</minimizeJar>
-                    <relocations>
-                        <relocation>
-                            <pattern>org.bstats</pattern>
-                            <shadedPattern>dev.sefiraat.cultivation.bstats</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>io.github.bakedlibs.dough</pattern>
-                            <shadedPattern>dev.sefiraat.cultivation.dough</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>io.papermc.lib</pattern>
-                            <shadedPattern>dev.sefiraat.cultivation.paperlib</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>io.github.sefiraat.sefilib</pattern>
-                            <shadedPattern>io.github.sefiraat.cultivation.sefilib</shadedPattern>
-                        </relocation>
-                    </relocations>
-                    <filters>
-                        <filter>
-                            <artifact>*:*</artifact>
-                            <excludes>
-                                <exclude>META-INF/*</exclude>
-                            </excludes>
-                        </filter>
-                    </filters>
-                </configuration>
                 <executions>
                     <execution>
                         <phase>package</phase>
                         <goals>
                             <goal>shade</goal>
                         </goals>
+                        <configuration>
+                            <minimizeJar>true</minimizeJar>
+                            <relocations>
+                                <relocation>
+                                    <pattern>io.papermc.lib</pattern>
+                                    <shadedPattern>dev.sefiraat.cultivation.paperlib</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>org.bstats</pattern>
+                                    <shadedPattern>dev.sefiraat.cultivation.bstats</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>io.github.sefiraat.sefilib</pattern>
+                                    <shadedPattern>io.github.sefiraat.cultivation.sefilib</shadedPattern>
+                                </relocation>
+                            </relocations>
+                            <artifactSet>
+                                <includes>
+                                    <include>org.bstats:bstats-bukkit</include>
+                                    <include>org.bstats:bstats-base</include>
+                                    <include>dev.sefiraat:SefiLib</include>
+                                    <include>io.papermc:paperlib</include>
+                                </includes>
+                            </artifactSet>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/*</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                        </configuration>
+
+
                     </execution>
                 </executions>
             </plugin>
